@@ -6,10 +6,10 @@ import ProjectView from './components/ProjectView';
 import ProjectForm from './components/ProjectForm';
 import ImportForm from './components/ImportForm';
 import { Project, ParsedProjectEntry } from './types';
-import { useLocalStorage } from './hooks/useLocalStorage';
+import { useBackupStorage } from './hooks/useBackupStorage';
 
 const App: React.FC = () => {
-  const [projects, setProjects] = useLocalStorage<Project[]>('projects', []);
+  const [projects, setProjects, isLoadingStorage, downloadBackup, restoreBackup] = useBackupStorage<Project[]>('projects', []);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [isCreating, setIsCreating] = useState(false);
   const [isImporting, setIsImporting] = useState(false);
@@ -80,13 +80,22 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col font-sans text-slate-800">
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
-        {!selectedProject ? (
+        {isLoadingStorage ? (
+          <div className="flex items-center justify-center py-12">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+              <p className="text-gray-600">Loading projects from persistent storage...</p>
+            </div>
+          </div>
+        ) : !selectedProject ? (
           <ProjectList 
             projects={projects} 
             onSelectProject={handleSelectProject}
             onStartCreate={() => setIsCreating(true)}
             onStartImport={() => setIsImporting(true)}
             onDeleteProject={handleDeleteProject}
+            onDownloadBackup={downloadBackup}
+            onRestoreBackup={restoreBackup}
           />
         ) : (
           <ProjectView 

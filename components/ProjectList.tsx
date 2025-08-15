@@ -8,9 +8,22 @@ interface ProjectListProps {
   onStartCreate: () => void;
   onStartImport: () => void;
   onDeleteProject: (projectId: string) => void;
+  onDownloadBackup: () => void;
+  onRestoreBackup: () => Promise<void>;
 }
 
-const ProjectList: React.FC<ProjectListProps> = ({ projects, onSelectProject, onStartCreate, onStartImport, onDeleteProject }) => {
+const ProjectList: React.FC<ProjectListProps> = ({ projects, onSelectProject, onStartCreate, onStartImport, onDeleteProject, onDownloadBackup, onRestoreBackup }) => {
+  
+  const handleRestore = async () => {
+    if (window.confirm('This will replace all current projects with backup data. Continue?')) {
+      try {
+        await onRestoreBackup();
+        alert('Backup restored successfully!');
+      } catch (error) {
+        alert('Failed to restore backup. Please check the file format.');
+      }
+    }
+  };
   
   const handleDelete = (e: React.MouseEvent, projectId: string) => {
     e.stopPropagation(); // Prevent card click event from firing
@@ -22,6 +35,24 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, onSelectProject, on
       <div className="flex flex-wrap justify-between items-center mb-6 border-b pb-4 gap-4">
         <h2 className="text-2xl font-bold text-slate-800">Projects Dashboard</h2>
         <div className="flex items-center space-x-3">
+          <button
+            onClick={onDownloadBackup}
+            className="inline-flex items-center px-3 py-2 border border-green-300 text-sm font-medium rounded-md shadow-sm text-green-700 bg-white hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+            title="Download Backup"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          </button>
+          <button
+            onClick={handleRestore}
+            className="inline-flex items-center px-3 py-2 border border-blue-300 text-sm font-medium rounded-md shadow-sm text-blue-700 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            title="Restore Backup"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
+            </svg>
+          </button>
           <button
             onClick={onStartImport}
             className="inline-flex items-center px-4 py-2 border border-slate-300 text-sm font-medium rounded-md shadow-sm text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"

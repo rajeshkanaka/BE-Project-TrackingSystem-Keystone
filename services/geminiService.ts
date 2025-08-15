@@ -2,17 +2,22 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ParsedProjectEntry } from "../types";
 
-const API_KEY = process.env.API_KEY;
+// For browser environments, we need to use API key authentication
+// Vertex AI with project/location is only supported in Node.js environments
+const API_KEY = process.env.GEMINI_API_KEY;
 
 if (!API_KEY) {
-  console.warn("API_KEY environment variable not set. AI features will be disabled.");
+  console.warn("GEMINI_API_KEY environment variable not set. AI features will be disabled.");
+  console.warn("For browser environments, Gemini API key is required even when using Vertex AI backend.");
 }
 
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
+const ai = new GoogleGenAI({ 
+  apiKey: API_KEY! 
+});
 
 export const getAIFeedback = async (currentRemarks: string): Promise<string> => {
   if (!API_KEY) {
-    return "AI features are disabled. Please set the API_KEY environment variable.";
+    return "AI features are disabled. Please set the GEMINI_API_KEY environment variable.";
   }
 
   const prompt = `
@@ -40,7 +45,7 @@ export const getAIFeedback = async (currentRemarks: string): Promise<string> => 
 
 export const parseProjectList = async (rawText: string): Promise<ParsedProjectEntry[]> => {
     if (!API_KEY) {
-        throw new Error("AI features are disabled. Please set the API_KEY environment variable.");
+        throw new Error("AI features are disabled. Please set the GEMINI_API_KEY environment variable.");
     }
     
     const prompt = `

@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   return (
     <header className="bg-slate-900 text-white shadow-lg no-print">
       <div className="container mx-auto px-4 py-4 flex items-center">
-        <img src={logoSrc} alt="Keystone Logo" className="h-16 w-16 mr-4" />
+        <img src="/icon.png" alt="Keystone Logo" className="h-16 w-16 mr-4" />
         <div>
             <h1 className="text-2xl sm:text-3xl font-bold">Keystone College of Engineering</h1>
             <p className="text-sm sm:text-md text-slate-300">Final Year Computers Project Tracking System</p>
