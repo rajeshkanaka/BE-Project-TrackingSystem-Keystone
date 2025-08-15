@@ -1,5 +1,5 @@
 {
-  "name": "SPPU Final Year Project Tracker",
-  "description": "A web application to track the progress of Final Year Computer Engineering projects for Savitribai Phule Pune University. It provides structured review forms for different project stages, from initial idea to final presentation, and includes AI-powered suggestions for reviewers.",
+  "name": "Keystone College of Engineering Final Year Computers Project Tracking System",
+  "description": "A web application to track the progress of Final Year Computer Engineering projects for Keystone College of Engineering. It provides structured review forms for different project stages, from initial idea to final presentation, and includes AI-powered suggestions for reviewers.",
   "requestFramePermissions": []
 }

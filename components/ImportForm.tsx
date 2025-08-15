@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { parseProjectList } from '../services/geminiService';
 import { ParsedProjectEntry } from '../types';
@@ -53,7 +54,7 @@ const ImportForm: React.FC<ImportFormProps> = ({ onImport, onCancel }) => {
         
         <textarea
             rows={12}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 disabled:bg-gray-100"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 disabled:bg-gray-100"
             placeholder="Paste your project list here..."
             value={rawText}
             onChange={(e) => setRawText(e.target.value)}
@@ -65,7 +66,7 @@ const ImportForm: React.FC<ImportFormProps> = ({ onImport, onCancel }) => {
               type="button"
               onClick={onCancel}
               disabled={isLoading}
-              className="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+              className="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50"
             >
               Cancel
             </button>
@@ -73,7 +74,7 @@ const ImportForm: React.FC<ImportFormProps> = ({ onImport, onCancel }) => {
               type="button"
               onClick={handleParse}
               disabled={isLoading}
-              className="inline-flex justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-400"
+              className="inline-flex justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:bg-orange-400"
             >
               {isLoading && <LoadingIcon />}
               {isLoading ? 'Parsing...' : 'Parse & Import'}

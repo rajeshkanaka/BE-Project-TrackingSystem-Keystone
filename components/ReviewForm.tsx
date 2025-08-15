@@ -58,7 +58,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ stage, formData, onDataChange }
                     type="date"
                     value={questionData?.date || ''}
                     onChange={(e) => onDataChange('date', e.target.value, q.id)}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 text-sm"
                   />
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
@@ -67,7 +67,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ stage, formData, onDataChange }
                     placeholder="e.g., A, B+, Satisfactory"
                     value={questionData?.grade || ''}
                     onChange={(e) => onDataChange('grade', e.target.value, q.id)}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 text-sm"
                   />
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
@@ -76,7 +76,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ stage, formData, onDataChange }
                     placeholder="Guide's Name"
                     value={questionData?.guideSign || ''}
                     onChange={(e) => onDataChange('guideSign', e.target.value, q.id)}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 text-sm"
                   />
                 </td>
               </tr>
@@ -90,7 +90,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ stage, formData, onDataChange }
         <div className="mt-4">
           <textarea
             rows={6}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50"
             placeholder="Enter overall feedback here..."
             value={formData.remarks as string || ''}
             onChange={(e) => onDataChange('remarks', e.target.value)}
@@ -100,7 +100,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ stage, formData, onDataChange }
             <button
                 onClick={handleAIFeedback}
                 disabled={isAILoading}
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-300 disabled:cursor-not-allowed"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:bg-orange-300 disabled:cursor-not-allowed"
             >
                 {isAILoading ? <LoadingIcon/> : (
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v1h-2V5a1 1 0 00-1-1H8a1 1 0 00-1 1v1H5V4zM5 7h10v9a2 2 0 01-2 2H7a2 2 0 01-2-2V7zm5 2a1 1 0 00-1 1v4a1 1 0 002 0v-4a1 1 0 00-1-1z" /></svg>
@@ -118,7 +118,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ stage, formData, onDataChange }
             <input
               type="text"
               placeholder="Reviewer 1 Name"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50"
               value={formData.reviewer1 as string || ''}
               onChange={(e) => onDataChange('reviewer1', e.target.value)}
             />
@@ -128,7 +128,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ stage, formData, onDataChange }
             <input
               type="text"
               placeholder="Reviewer 2 Name"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50"
               value={formData.reviewer2 as string || ''}
               onChange={(e) => onDataChange('reviewer2', e.target.value)}
             />

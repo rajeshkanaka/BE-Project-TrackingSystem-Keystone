@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback } from 'react';
 import StageTabs from './StageTabs';
 import ReviewForm from './ReviewForm';
@@ -105,7 +106,7 @@ const ProjectView: React.FC<ProjectViewProps> = ({ project, onUpdateProject, onB
         {/* Screen View */}
         <div className="no-print">
             <div className="flex justify-between items-center mb-6">
-                 <button onClick={onBack} className="flex items-center text-sm font-medium text-slate-600 hover:text-indigo-600">
+                 <button onClick={onBack} className="flex items-center text-sm font-medium text-slate-600 hover:text-orange-600">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
@@ -113,7 +114,7 @@ const ProjectView: React.FC<ProjectViewProps> = ({ project, onUpdateProject, onB
                 </button>
                 <button
                     onClick={() => window.print()}
-                    className="inline-flex items-center px-4 py-2 border border-slate-300 text-sm font-medium rounded-md shadow-sm text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="inline-flex items-center px-4 py-2 border border-slate-300 text-sm font-medium rounded-md shadow-sm text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" clipRule="evenodd" />
@@ -142,7 +143,7 @@ const ProjectView: React.FC<ProjectViewProps> = ({ project, onUpdateProject, onB
         <div className="hidden print-block">
             <div className="p-4">
                 <h1 className="text-3xl font-bold text-center">Final Year Project Report</h1>
-                <p className="text-md text-center text-slate-600 mb-8">Savitribai Phule Pune University - Department of Computer Engineering</p>
+                <p className="text-md text-center text-slate-600 mb-8">Keystone College of Engineering - Department of Computer Engineering</p>
 
                 <div className="mb-8 p-4 border rounded-lg">
                     <h2 className="text-2xl font-semibold mb-2">{project.title}</h2>

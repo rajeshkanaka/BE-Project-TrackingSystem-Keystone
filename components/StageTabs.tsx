@@ -22,7 +22,7 @@ const StageTabs: React.FC<StageTabsProps> = ({ stages, activeStageId, onSelectSt
         <select
           id="tabs"
           name="tabs"
-          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          className="block w-full rounded-md border-gray-300 focus:border-orange-500 focus:ring-orange-500"
           value={activeStageId}
           onChange={(e) => onSelectStage(e.target.value)}
         >

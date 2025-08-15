@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Project } from '../types';
 
@@ -23,7 +24,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, onSelectProject, on
         <div className="flex items-center space-x-3">
           <button
             onClick={onStartImport}
-            className="inline-flex items-center px-4 py-2 border border-slate-300 text-sm font-medium rounded-md shadow-sm text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="inline-flex items-center px-4 py-2 border border-slate-300 text-sm font-medium rounded-md shadow-sm text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
           >
              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -32,7 +33,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, onSelectProject, on
           </button>
           <button
             onClick={onStartCreate}
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
@@ -52,10 +53,10 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, onSelectProject, on
           {projects.map(project => (
             <div 
               key={project.id} 
-              className="bg-slate-50 border border-slate-200 rounded-lg p-5 cursor-pointer hover:shadow-md hover:border-indigo-400 transition-all group relative"
+              className="bg-slate-50 border border-slate-200 rounded-lg p-5 cursor-pointer hover:shadow-md hover:border-orange-400 transition-all group relative"
               onClick={() => onSelectProject(project.id)}
             >
-              <h3 className="text-lg font-semibold text-slate-900 truncate group-hover:text-indigo-600">{project.title}</h3>
+              <h3 className="text-lg font-semibold text-slate-900 truncate group-hover:text-orange-600">{project.title}</h3>
               <p className="text-sm text-slate-500 mt-2"><strong>Guide:</strong> {project.guide}</p>
               <p className="text-sm text-slate-500 mt-1"><strong>Students:</strong> {project.students.join(', ')}</p>
                <button

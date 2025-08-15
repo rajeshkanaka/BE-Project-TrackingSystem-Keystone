@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Project } from '../types';
 
@@ -39,7 +40,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSave, onCancel }) => {
                 id="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
                 required
               />
             </div>
@@ -50,7 +51,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSave, onCancel }) => {
                 id="students"
                 value={students}
                 onChange={(e) => setStudents(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
                 placeholder="e.g., John Doe, Jane Smith"
                 required
               />
@@ -62,7 +63,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSave, onCancel }) => {
                 id="guide"
                 value={guide}
                 onChange={(e) => setGuide(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
                 required
               />
             </div>
@@ -73,7 +74,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSave, onCancel }) => {
                 id="coGuide"
                 value={coGuide}
                 onChange={(e) => setCoGuide(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
               />
             </div>
           </div>
@@ -81,13 +82,13 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSave, onCancel }) => {
             <button
               type="button"
               onClick={onCancel}
-              className="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="inline-flex justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="inline-flex justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
             >
               Save Project
             </button>
