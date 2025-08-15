@@ -50,4 +50,3 @@
 ---
 
 **Action:**  
-I will now draft and prepare a file named CONTRIBUTING.md containing all these points, tailored to your repository (TypeScript/HTML, advanced standards).
