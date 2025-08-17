@@ -77,47 +77,78 @@ const App: React.FC = () => {
   const selectedProject = projects.find(p => p.id === selectedProjectId) || null;
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-slate-800">
-      <Header />
-      <main className="flex-grow container mx-auto px-4 py-8">
-        {isLoadingStorage ? (
-          <div className="flex items-center justify-center py-12">
-            <div className="text-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
-              <p className="text-gray-600">Loading projects from persistent storage...</p>
+    <div className="min-h-screen flex flex-col font-sans bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white">
+      {isLoadingStorage ? (
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400 mx-auto mb-4"></div>
+            <p className="text-cyan-200">Loading projects from persistent storage...</p>
+          </div>
+        </div>
+      ) : !selectedProject ? (
+        <ProjectList 
+          projects={projects} 
+          onSelectProject={handleSelectProject}
+          onStartCreate={() => setIsCreating(true)}
+          onStartImport={() => setIsImporting(true)}
+          onDeleteProject={handleDeleteProject}
+          onDownloadBackup={downloadBackup}
+          onRestoreBackup={restoreBackup}
+        />
+      ) : (
+        <div>
+          <div className="fixed top-4 left-4 right-4 bg-black/20 backdrop-blur-xl border border-cyan-500/20 rounded-2xl z-50">
+            <div className="px-6 py-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">K</span>
+                  </div>
+                  <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">
+                    Keystone Project Tracker
+                  </h1>
+                </div>
+                <button
+                  onClick={handleUnselectProject}
+                  className="p-2 bg-white/10 border border-cyan-500/30 rounded-xl hover:bg-white/20 transition-all duration-200"
+                  title="Back to Dashboard"
+                >
+                  <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
-        ) : !selectedProject ? (
-          <ProjectList 
-            projects={projects} 
-            onSelectProject={handleSelectProject}
-            onStartCreate={() => setIsCreating(true)}
-            onStartImport={() => setIsImporting(true)}
-            onDeleteProject={handleDeleteProject}
-            onDownloadBackup={downloadBackup}
-            onRestoreBackup={restoreBackup}
-          />
-        ) : (
-          <ProjectView 
-            project={selectedProject}
-            onUpdateProject={handleUpdateProject}
-            onBack={handleUnselectProject}
-          />
-        )}
-        {isCreating && (
-          <ProjectForm 
-            onSave={handleSaveProject} 
-            onCancel={() => setIsCreating(false)}
-          />
-        )}
-         {isImporting && (
-          <ImportForm
-            onImport={handleImportProjects}
-            onCancel={() => setIsImporting(false)}
-          />
-        )}
-      </main>
-      <Footer />
+          <div className="pt-24">
+            <ProjectView 
+              project={selectedProject}
+              onUpdateProject={handleUpdateProject}
+              onBack={handleUnselectProject}
+            />
+          </div>
+        </div>
+      )}
+      {isCreating && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="w-full max-w-2xl">
+            <ProjectForm 
+              onSave={handleSaveProject} 
+              onCancel={() => setIsCreating(false)}
+            />
+          </div>
+        </div>
+      )}
+       {isImporting && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="w-full max-w-4xl">
+            <ImportForm
+              onImport={handleImportProjects}
+              onCancel={() => setIsImporting(false)}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
